@@ -7,6 +7,7 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
+import { IoFastFood } from "react-icons/io5";
 const Grocery = () => {
     return (
         <>
@@ -14,7 +15,7 @@ const Grocery = () => {
                 <CardHeader>
                     <CardTitle>Grocery</CardTitle>
                     <CardDescription>
-                        These are the Grocery related Expenses
+                        <IoFastFood size={24} />
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

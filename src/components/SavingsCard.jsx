@@ -7,13 +7,16 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
-const SavingsCard = ({ title, description }) => {
+import { GiPiggyBank } from "react-icons/gi";
+const SavingsCard = ({ title }) => {
     return (
         <>
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
+                    <CardDescription>
+                        <GiPiggyBank size={24} />
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form>

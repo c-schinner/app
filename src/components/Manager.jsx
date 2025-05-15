@@ -29,14 +29,8 @@ const Manager = () => {
                     />
                 </div>
                 <div className="flex flex-col mt-6 space-y-8">
-                    <TotalCard
-                        title="Total Income"
-                        description="This is your total monthly income."
-                    />
-                    <SavingsCard
-                        title="Monthly Savings"
-                        description="This is your total monthly savings amount."
-                    />
+                    <TotalCard title="Total Income" />
+                    <SavingsCard title="Monthly Savings" />
                 </div>
             </div>
             <div className="flex justify-center mt-2 space-x-2 space-between">

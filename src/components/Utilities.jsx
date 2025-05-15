@@ -7,6 +7,7 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
+import { MdOutlinePower } from "react-icons/md";
 
 const Utilities = () => {
     return (
@@ -15,7 +16,7 @@ const Utilities = () => {
                 <CardHeader>
                     <CardTitle>Utilities</CardTitle>
                     <CardDescription>
-                        These are the Utility related Expenses
+                        <MdOutlinePower size={24} />
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

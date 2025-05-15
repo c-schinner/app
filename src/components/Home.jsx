@@ -7,6 +7,7 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
+import { IoIosHome } from "react-icons/io";
 const Home = () => {
     return (
         <>
@@ -14,7 +15,7 @@ const Home = () => {
                 <CardHeader>
                     <CardTitle>Home</CardTitle>
                     <CardDescription>
-                        These are the Home related Expenses
+                        <IoIosHome size={24} />
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

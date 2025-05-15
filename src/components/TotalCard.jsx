@@ -7,13 +7,16 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
-const TotalCard = ({ title, description }) => {
+import { FaMoneyBillWave } from "react-icons/fa";
+const TotalCard = ({ title }) => {
     return (
         <>
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
+                    <CardDescription>
+                        <FaMoneyBillWave size={24} />
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form>

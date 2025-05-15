@@ -7,6 +7,7 @@ import {
     CardTitle,
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
+import { FaTv } from "react-icons/fa";
 const Entertainment = () => {
     return (
         <>
@@ -14,7 +15,7 @@ const Entertainment = () => {
                 <CardHeader>
                     <CardTitle>Entertainment</CardTitle>
                     <CardDescription>
-                        These are the Entertainment related Expenses
+                        <FaTv size={24} />
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
