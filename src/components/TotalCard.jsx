@@ -8,7 +8,7 @@ import {
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
 import { FaMoneyBillWave } from "react-icons/fa";
-const TotalCard = ({ title }) => {
+const TotalCard = ({ title, totalAmount }) => {
     return (
         <>
             <Card className="w-[350px]">
@@ -26,7 +26,7 @@ const TotalCard = ({ title }) => {
                                     className="text-2xl text-bold"
                                     htmlFor="money"
                                 >
-                                    $5000
+                                    Total: ${totalAmount}
                                 </Label>
                             </div>
                         </div>

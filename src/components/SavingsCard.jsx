@@ -8,7 +8,8 @@ import {
 } from "./ui/card";
 import { Label } from "@/components/ui/label";
 import { GiPiggyBank } from "react-icons/gi";
-const SavingsCard = ({ title }) => {
+const SavingsCard = ({ title, expense = [] }) => {
+    const total = expense.reduce((sum, item) => sum + Number(item.amount), 0);
     return (
         <>
             <Card className="w-[350px]">
@@ -26,7 +27,7 @@ const SavingsCard = ({ title }) => {
                                     className="text-2xl text-bold"
                                     htmlFor="money"
                                 >
-                                    $5000
+                                    Total: ${total.toFixed(2)}
                                 </Label>
                             </div>
                         </div>

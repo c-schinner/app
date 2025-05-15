@@ -26,14 +26,11 @@ const ExpenseCard = ({ title, description, onAddExpense }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!amount || !category || !desc) return;
 
-        onAddExpense(category, {
-            amount: parseFloat(amount),
-            description: desc,
-        });
+        const parsedAmount = parseFloat(amount);
+        if (isNaN(parsedAmount)) return;
 
-        // Clear fields
+        onAddExpense(category, parsedAmount, desc);
         setAmount("");
         setCategory("");
         setDesc("");
@@ -96,22 +93,22 @@ const ExpenseCard = ({ title, description, onAddExpense }) => {
                                 />
                             </div>
                         </div>
+                        <div className="mt-4 flex justify-between">
+                            <Button
+                                variant="outline"
+                                type="button"
+                                onClick={() => {
+                                    setAmount("");
+                                    setCategory("");
+                                    setDesc("");
+                                }}
+                            >
+                                Cancel
+                            </Button>
+                            <Button type="submit">Submit</Button>
+                        </div>
                     </form>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                    <Button
-                        variant="outline"
-                        type="button"
-                        onClick={() => {
-                            setAmount("");
-                            setCategory("");
-                            setDesc("");
-                        }}
-                    >
-                        Cancel
-                    </Button>
-                    <Button>Submit</Button>
-                </CardFooter>
             </Card>
         </>
     );
