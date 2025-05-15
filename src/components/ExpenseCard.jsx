@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
     Card,
     CardContent,
@@ -18,7 +19,26 @@ import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const ExpenseCard = ({ title, description }) => {
+const ExpenseCard = ({ title, description, onAddExpense }) => {
+    const [amount, setAmount] = useState("");
+    const [category, setCategory] = useState("");
+    const [desc, setDesc] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!amount || !category || !desc) return;
+
+        onAddExpense(category, {
+            amount: parseFloat(amount),
+            description: desc,
+        });
+
+        // Clear fields
+        setAmount("");
+        setCategory("");
+        setDesc("");
+    };
+
     return (
         <>
             <Card className="w-[350px]">
@@ -27,15 +47,23 @@ const ExpenseCard = ({ title, description }) => {
                     <CardDescription>{description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="grid w-full items-center gap-4">
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="amount">Amount</Label>
-                                <Input id="amount" placeholder="Amount" />
+                                <Input
+                                    id="amount"
+                                    placeholder="Amount"
+                                    value={amount}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                />
                             </div>
                             <div className="flex flex-col space-y-1.5">
                                 <Label htmlFor="expense">Expense</Label>
-                                <Select>
+                                <Select
+                                    value={category}
+                                    onValueChange={setCategory}
+                                >
                                     <SelectTrigger id="expense">
                                         <SelectValue placeholder="Select" />
                                     </SelectTrigger>
@@ -63,13 +91,25 @@ const ExpenseCard = ({ title, description }) => {
                                 <Input
                                     id="description"
                                     placeholder="Description"
+                                    value={desc}
+                                    onChange={(e) => setDesc(e.target.value)}
                                 />
                             </div>
                         </div>
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-between">
-                    <Button variant="outline">Cancel</Button>
+                    <Button
+                        variant="outline"
+                        type="button"
+                        onClick={() => {
+                            setAmount("");
+                            setCategory("");
+                            setDesc("");
+                        }}
+                    >
+                        Cancel
+                    </Button>
                     <Button>Submit</Button>
                 </CardFooter>
             </Card>
